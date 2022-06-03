@@ -51,6 +51,7 @@ def get_lyrics(token , song_title, artist_name):
     lyrics = div.get_text()
     return lyrics 
 
+
 def writeLyrics(lyrics):
     file = open('lyrics.txt','wb')
     file.write(lyrics.encode())
