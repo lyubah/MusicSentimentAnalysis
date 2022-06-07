@@ -7,7 +7,7 @@ info:
     name: lyubah
   description: |
     Classify the emotion of a song using a pretrained BERT model: a tranformer based NLP model! 
-    | How to use:
+    How to use:
     Input the a song title and the artist's name.
   
 servers:
@@ -19,16 +19,16 @@ paths:
       requestBody:
         required: true
         description: |
-          This request will return the general emotion of the song. 
+          This request will analyze the emotion of your song
         content:
-          multipart/form-data:s
+          multipart/form-data:
             schema:
               type: object
               properties:
-                song_title:
+                song: 
                   type: 'string'
-                  description: "Please specify the name of the song"
-                artist_name: 
+                  descriptoin: "Please specify the name of the song"
+                artist: 
                   type: 'string'
                   description: "please specify name of the artist" 
                 
@@ -43,10 +43,8 @@ paths:
               schema:
                 type: object
         '400':
-          description: Bad Request Error
+          description: "Bad Request Error"
+        '429':
+          description: "Too many requests"
         '500':
-          description: Server-side Error
-        '503':
-          description: Server is not ready
-        default: 
-          description: Unexpected Error 
+          description: "Server-side Error"

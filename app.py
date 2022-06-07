@@ -4,6 +4,8 @@ from model import get_sentiment
 
 app = Flask(__name__)
 
+
+
 @app.route("/predict", methods=["POST"])
 def main():
     try:
@@ -14,5 +16,8 @@ def main():
     prediction = get_sentiment(song_title, artist_name)
     return jsonify(prediction)
 
+
+    
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="5000")
+    app.run(host="0.0.0.0", port="8000")
