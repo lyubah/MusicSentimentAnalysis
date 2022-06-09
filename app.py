@@ -5,7 +5,6 @@ from model import get_sentiment
 app = Flask(__name__)
 
 
-
 @app.route("/predict", methods=["POST"])
 def main():
     try:
@@ -20,4 +19,5 @@ def main():
     
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port="8000")

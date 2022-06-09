@@ -18,8 +18,37 @@ paths:
     post:
       requestBody:
         required: true
+        description:```yaml
+openapi: 3.0.1
+
+info:
+  title: GPT-2 PrideAndPrejudice
+  version: 1.0.0
+  contact:
+    name: Changyeop
+  description: |
+    Generate Pride and Prejudice story using GPT-2 model
+    ---
+          How to use:
+          * First, Fill what the base text. This will be base of Pride and Prejudice fiction.
+          * And then, Fill number in length. Text is created as long as "length". I recommend between 100 and 300.
+          * If length is so big, generate time will be long.
+    ---
+servers:
+  - url: https://main-ainize-tutorial-server-scy6500.endpoint.ainize.ai
+
+paths:
+  /predict:
+    post:
+      requestBody:
+        required: true
         description: |
-          This request will analyze the emotion of your song
+        This will return a prediction of analysis of your song.
+          curl example
+              curl -X POST https://main-ainize-tutorial-server-scy6500.endpoint.ainize.ai/predict"
+              -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "song= Float on" -F " artist= Modest Mouse"
+        
+```
         content:
           multipart/form-data:
             schema:
