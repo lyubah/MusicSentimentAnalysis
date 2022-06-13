@@ -13,11 +13,10 @@ def main():
     except Exception as e:
         return jsonify({'message': f'Invalid request, {e}'}), 500
     prediction = get_sentiment(song_title, artist_name)
-    return jsonify(prediction)
+    return jsonify({"output": prediction})
 
 
     
 
 if __name__ == "__main__":
-
-    app.run(host="0.0.0.0", port="8000")
+    app.run(host="0.0.0.0", port=8080, debug=True)
