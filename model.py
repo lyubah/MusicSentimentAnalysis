@@ -14,11 +14,8 @@ def getSentimentHelper(text):
 
 #this is where the user will input texts
 def get_sentiment(song_title, artist_name):
-    lyrics = webScrape(song_title, artist_name)
-    lyrics = open("lyrics.txt")
-    data = lyrics.read()
-    lyrics.close()
-    sentiment = getSentimentHelper(data)
+    dic = webScrape(song_title, artist_name)
+    sentiment = getSentimentHelper(dic['lyrics'])
     return sentiment    
 
 

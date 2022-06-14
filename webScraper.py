@@ -53,13 +53,16 @@ def get_lyrics(token , song_title, artist_name):
 
 
 def writeLyrics(lyrics):
-    file = open('lyrics.txt','wb')
-    file.write(lyrics.encode())
-    file.close()
-    return lyrics
+    # file = open('lyrics.txt','wb')
+    # file.write(lyrics.encode())
+    # file.close()
+    result = dict()
+    result['lyrics']=lyrics
+    return result
 
 def webScrape(song_title, artist_name):
     lyrics = get_lyrics(token , song_title, artist_name)
     lyrics = clean_lyrics(lyrics)
+    #returns dictionary object
     lyrics = writeLyrics(lyrics)
-
+    return lyrics
