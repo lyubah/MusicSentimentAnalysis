@@ -63,6 +63,6 @@ def writeLyrics(lyrics):
 def webScrape(song_title, artist_name):
     lyrics = get_lyrics(token , song_title, artist_name)
     lyrics = clean_lyrics(lyrics)
-    #returns dictionary object
     lyrics = writeLyrics(lyrics)
     return lyrics
+
