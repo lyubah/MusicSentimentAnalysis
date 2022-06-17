@@ -13,8 +13,8 @@ info:
            make sure to input correct spelling! 
     ---
 servers:
-  - url: "https://master-music-sentiment-analysis-lyubah.endpoint.ainize.ai/predict" 
-
+  - url: "https://master-music-sentiment-analysis-lyubah.endpoint.ainize.ai" 
+  - port: 8501
 paths:
   /predict:
     post:
