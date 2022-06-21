@@ -1,10 +1,12 @@
 import config
 import re
 import requests;
+import os
 from bs4 import BeautifulSoup
 
 base_root = 'https://genius.com/'
-token=config.token
+# token=config.token
+token = os.environ['API_KEY']
 
 def urlify(song_title, artist_name):
     artist = artist_name.lower()
@@ -42,12 +44,8 @@ def get_lyrics(token , song_title, artist_name):
     path = pathify(song_title, artist_name)
     html = BeautifulSoup(response.text.replace('<br/','\n'), 'html.parser')
     div = html.find("div", class_=re.compile("^lyrics$|Lyrics__Root"))
-    #fix this 
     if div is None:
-            print("Couldn't find the lyric's section. "
-                      "Please check spelling, or  report this if the song has lyrics.\n"
-                      "Song URL:", url)
-            return None
+        return 0
     lyrics = div.get_text()
     return lyrics 
 
@@ -62,7 +60,9 @@ def writeLyrics(lyrics):
 
 def webScrape(song_title, artist_name):
     lyrics = get_lyrics(token , song_title, artist_name)
+    if lyrics == 0:
+        return ("Couldn't find the song, check spelling again!")
     lyrics = clean_lyrics(lyrics)
-    lyrics = writeLyrics(lyrics)
+    lyrics = writeLyrics(lyrics)   
     return lyrics
 
